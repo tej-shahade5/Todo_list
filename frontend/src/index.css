@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  max-height: 100vh;
+  padding: 20px;
+  background-color: #26a69a;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="5" fill="rgba(255, 255, 255, 0.3)"/><circle cx="90" cy="90" r="5" fill="rgba(255, 255, 255, 0.3)"/><circle cx="50" cy="50" r="5" fill="rgba(255, 255, 255, 0.3)"/><line x1="0" y1="0" x2="100" y2="100" stroke="rgba(0, 0, 255, 0.2)" stroke-width="1"/><line x1="100" y1="0" x2="0" y2="100" stroke="rgba(255, 0, 0, 0.2)" stroke-width="1"/></svg>');
+  background-size: 50px 50px;
+  background-repeat: repeat;
+  position: relative;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background: #fff;
+  padding: 20px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  width: 70rem;
+  height: 80vh; 
+  overflow-y: auto; 
+  position: relative;
+  background-image: linear-gradient(to bottom, transparent 0%, transparent 1px, #e0f2f1 1px, #e0f2f1 2px, transparent 2px),
+                    linear-gradient(to bottom, transparent 0%, transparent 1px, #e0f2f1 1px, #e0f2f1 2px, transparent 2px);
+  background-size: 100% 30px;
+  background-position: 0 0;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  left: -30px;
+  top: 0;
+  bottom: 0;
+  width: 30px;
+  background: #26a69a;
+  border-radius: 5px 0 0 5px;
+}
+
+.container::after {
+  content: '';
+  position: absolute;
+  left: -25px;
+  top: 10px;
+  bottom: 10px;
+  width: 20px;
+  background: linear-gradient(to bottom, #26a69a 0%, #26a69a 50%, rgba(38, 166, 154, 0.5) 50%, rgba(38, 166, 154, 0.5) 100%);
+  border-radius: 50%;
+  background-size: 100% 20px;
+  background-repeat: repeat-y;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #757575;
+  text-transform: uppercase;
+  position: relative;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 2px;
+  background: #26a69a;
+}
+
+.counts {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #757575;
+  font-size: 14px;
+}
+
+.task-form {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.task-form input[type="text"] {
+  width: 70%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #000;
+}
+
+.task-form button {
+  padding: 8px 16px;
+  background-color: #26a69a;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.task-form button:hover {
+  background-color: #1e7e75;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #e0f2f1;
+  font-size: 14px;
+}
+
+th {
+  background-color: #fff;
+  font-weight: 500;
+  color: #757575;
+  text-transform: uppercase;
+}
+
+td input[type="checkbox"] {
+  margin: 0;
+  cursor: pointer;
+}
+
+td button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #757575;
+  font-size: 16px;
+}
+
+td button:hover {
+  color: #e74c3c;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 50rem;
+  }
+
+  .task-form input[type="text"] {
+    width: 65%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+    max-width: 40rem;
+  }
+
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr {
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  td {
+    position: relative;
+    padding-left: 50%;
+    text-align: right;
+    border: none;
+    border-bottom: 1px solid #e0f2f1;
+  }
+
+  td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    font-weight: 500;
+    color: #757575;
+  }
+
+  .task-form {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .task-form input[type="text"] {
+    width: 100%;
+  }
+
+  .task-form button {
+    margin-left: 0;
+    width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 5px;
+    max-width: 60rem;
+    height: 85vh;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+
+  .counts {
+    font-size: 12px;
+  }
+
+  .task-form button {
+    width: 90px;
+    font-size: 12px;
+  }
+}
